@@ -8,7 +8,6 @@ main() async {
   await Orange().setDouble('decimal', 1.5);
   await Orange().setString('action', 'Start');
 
-
   // read
   print(await Orange().getInt('counter'));
   print(await Orange().getBool('repeat'));
@@ -20,14 +19,14 @@ main() async {
 
   // performance test(10000 time writes)
   CodeTimer.start();
-  for(int i = 0; i < 10000; i++){
+  for (int i = 0; i < 10000; i++) {
     await Orange().setInt('int$i', 1);
   }
   CodeTimer.stop(label: 'write performance test');
 
   // performance test(10000 time reads)
   CodeTimer.start();
-  for(int i = 0; i < 10000; i++){
+  for (int i = 0; i < 10000; i++) {
     await Orange().getInt('int$i');
   }
   CodeTimer.stop(label: 'read performance test');

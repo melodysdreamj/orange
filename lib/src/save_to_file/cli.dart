@@ -7,7 +7,8 @@ import 'package:sembast/sembast_io.dart';
 
 class DeviceStorage {
   static StreamController<dynamic> _setController = StreamController<dynamic>();
-  static StreamController<String> _removeController = StreamController<String>();
+  static StreamController<String> _removeController =
+      StreamController<String>();
 
   Future<void> set(String key, dynamic value) async {
     await _ready();

@@ -8,7 +8,8 @@ import 'package:path_provider/path_provider.dart';
 
 class DeviceStorage {
   static StreamController<dynamic> _setController = StreamController<dynamic>();
-  static StreamController<String> _removeController = StreamController<String>();
+  static StreamController<String> _removeController =
+      StreamController<String>();
 
   Future<void> set(String key, dynamic value) async {
     await _ready();
@@ -71,7 +72,8 @@ class DeviceStorage {
   }
 
   _open() async {
-    String dbPath = '${(await getApplicationDocumentsDirectory()).path}/orange.db';
+    String dbPath =
+        '${(await getApplicationDocumentsDirectory()).path}/orange.db';
     DatabaseFactory dbFactory = databaseFactoryIo;
 
     _store = StoreRef.main();

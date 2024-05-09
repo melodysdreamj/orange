@@ -1,6 +1,6 @@
 name: orange
-description: "fast and esay modern key-value store"
-version: 1.0.2
+description: "super fast and esay modern key-value store. working everywhere. no build_runner"
+version: 1.0.4
 homepage: https://github.com/melodysdreamj/orange
 
 environment:

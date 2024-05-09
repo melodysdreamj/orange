@@ -11,8 +11,8 @@
 
 - ✨ **Super Fast Speed**  100 x faster than SharedPreference
 - 🦄 **Super Easy**: No initialization required, same api as SharedPreference
-- 🚀 **All Environment Work**: working on Android, iOS, Web, Mac, Windows, Linux even cli.
-- 🌐 **No Build Runner**: do not waste time on build_runner
+- 🚀 **All Environment Work**: Working on Android, iOS, Web, Mac, Windows, Linux even cli.
+- 🌐 **No Build Runner**: Do not waste your time on build_runner
 
 ## Installation
 ```bash
@@ -23,7 +23,7 @@ flutter pub add orange
 ```dart
 await Orange().setString('orange', 'is delicious! 🍊');
 
-String orange = await Orange().getString('orange');
+String? orange = await Orange().getString('orange');
 print(orange); // is delicious! 🍊
 
 await Orange().remove('orange');
