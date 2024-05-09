@@ -21,11 +21,11 @@ flutter pub add orange
 
 ## Usage
 ```dart
-await Orange().setString('orange', 'is delicious! 🍊');
+await Orange.setString('orange', 'is delicious! 🍊');
 
-String? orange = await Orange().getString('orange');
+String? orange = await Orange.getString('orange');
 print(orange); // is delicious! 🍊
 
-await Orange().remove('orange');
+await Orange.remove('orange');
 ```
 you got all usage of Orange now! 🎉

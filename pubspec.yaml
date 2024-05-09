@@ -1,6 +1,8 @@
 name: orange
-description: "super fast and esay modern key-value store. working everywhere. no build_runner"
-version: 1.0.4
+description: "orange database 🍊is super fast and esay modern key-value store. working everywhere.
+ no 
+build_runner"
+version: 1.1.1
 homepage: https://github.com/melodysdreamj/orange
 
 environment:
