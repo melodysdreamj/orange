@@ -1,7 +1,7 @@
 name: orange
 description: "fast and esay modern key-value store"
-version: 1.0.1
-homepage:
+version: 1.0.2
+homepage: https://github.com/melodysdreamj/orange
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
