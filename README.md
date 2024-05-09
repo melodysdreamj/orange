@@ -14,6 +14,17 @@
 - 🚀 **All Environment Work**: Working on Android, iOS, Web, Mac, Windows, Linux even cli.
 - 🌐 **No Build Runner**: Do not waste your time on build_runner
 
+
+## Benchmark
+read & write 10000 times with Orange Database 🍊 and shared_preferences
+```
+Execution orange 🍊 write performance test time: 120 ms
+Execution orange 🍊 read performance test time: 9 ms
+Execution shared_preferences write performance test time: 49228 ms
+Execution shared_preferences read performance test time: 28 ms
+```
+you can re run the benchmark test this [repository](https://github.com/melodysdreamj/benchmark_for_orange_database)
+
 ## Installation
 ```bash
 flutter pub add orange
@@ -29,3 +40,19 @@ print(orange); // is delicious! 🍊
 await Orange.remove('orange');
 ```
 you got all usage of Orange now! 🎉
+
+## Advanced Usage
+
+### Initialize
+if you need initialize first, you can use `Orange.init()` method.
+this is useful when handling a large amount of data. because orange database need load data from disk when first access.
+```dart
+await Orange.init();
+```
+
+### Check Saved Disk Time
+if you want to check if the data is saved on disk, you can use `Orange.isSavedToDisk()` method.
+```dart
+bool isSaved = await Orange.isSavedToDisk('orange');
+print(isSaved); // true
+```
