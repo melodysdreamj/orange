@@ -8,19 +8,19 @@ import 'save_to_file/device.dart'
 class OrangeMap {
   static Map<String, dynamic>? _map;
 
-  static Future<void> set(String key, dynamic value) async {
-    _map ??= await DeviceStorage().getMap();
+  static void set(String key, dynamic value) {
+    if(_map == null) throw Exception('OrangeMap not initialized');
     _map![key] = value;
     DeviceStorage().set(key, value);
   }
 
-  static Future<dynamic> get(String key) async {
-    _map ??= await DeviceStorage().getMap();
+  static dynamic get(String key) {
+    if(_map == null) throw Exception('OrangeMap not initialized');
     return _map![key];
   }
 
-  static Future<void> remove(String key) async {
-    _map ??= await DeviceStorage().getMap();
+  static void remove(String key) {
+    if(_map == null) throw Exception('OrangeMap not initialized');
     _map!.remove(key);
     DeviceStorage().remove(key);
   }

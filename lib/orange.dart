@@ -3,40 +3,40 @@ library orange;
 import 'package:orange/src/map.dart';
 
 class Orange {
-  static Future<void> setInt(String key, int value) async {
-    await OrangeMap.set(key, value);
+  static void setInt(String key, int value) {
+    OrangeMap.set(key, value);
   }
 
-  static Future<void> setString(String key, String value) async {
-    await OrangeMap.set(key, value);
+  static void setString(String key, String value) {
+    OrangeMap.set(key, value);
   }
 
-  static Future<void> setDouble(String key, double value) async {
-    await OrangeMap.set(key, value);
+  static void setDouble(String key, double value) {
+    OrangeMap.set(key, value);
   }
 
-  static Future<void> setBool(String key, bool value) async {
-    await OrangeMap.set(key, value);
+  static void setBool(String key, bool value) {
+    OrangeMap.set(key, value);
   }
 
-  static Future<int?> getInt(String key) async {
-    return await OrangeMap.get(key) as int?;
+  static int? getInt(String key) {
+    return OrangeMap.get(key) as int?;
   }
 
-  static Future<String?> getString(String key) async {
-    return await OrangeMap.get(key) as String?;
+  static String? getString(String key) {
+    return OrangeMap.get(key) as String?;
   }
 
-  static Future<double?> getDouble(String key) async {
-    return await OrangeMap.get(key) as double?;
+  static double? getDouble(String key) {
+    return OrangeMap.get(key) as double?;
   }
 
-  static Future<bool?> getBool(String key) async {
-    return await OrangeMap.get(key) as bool?;
+  static bool? getBool(String key) {
+    return OrangeMap.get(key) as bool?;
   }
 
-  static Future<void> remove(String key) async {
-    await OrangeMap.remove(key);
+  static void remove(String key) async {
+    OrangeMap.remove(key);
   }
 
   static Future<bool> isSavedToDisk() async {

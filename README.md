@@ -10,7 +10,7 @@
 ## Features
 
 - ✨ **Super Fast Speed**  100 x faster than SharedPreference
-- 🦄 **Super Easy**: No initialization required, same api as SharedPreference
+- 🦄 **Super Easy**: same api as SharedPreference
 - 🚀 **All Environment Work**: Working on Android, iOS, Web, Mac, Windows, Linux even cli.
 - 🌐 **No Build Runner**: Do not waste your time on build_runner
 
@@ -22,12 +22,14 @@ flutter pub add orange
 
 ## Usage
 ```dart
-await Orange.setString('orange', 'is delicious! 🍊');
+await Orange.init();
 
-String? orange = await Orange.getString('orange');
+Orange.setString('orange', 'is delicious! 🍊');
+
+String? orange = Orange.getString('orange');
 print(orange); // is delicious! 🍊
 
-await Orange.remove('orange');
+Orange.remove('orange');
 ```
 you got all usage of Orange now! 🎉
 
@@ -43,13 +45,6 @@ you can re run the benchmark test this [repository](https://github.com/melodysdr
 
 
 ## Advanced Usage
-
-### Initialize
-if you need initialize first, you can use `Orange.init()` method.
-this is useful when handling a large amount of data. because orange database need load data from disk when first access.
-```dart
-await Orange.init();
-```
 
 ### Check Saved Disk Time
 if you want to check if the data is saved on disk, you can use `Orange.isSavedToDisk()` method.

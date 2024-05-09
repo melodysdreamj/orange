@@ -1,3 +1,4 @@
-## 0.0.1
+## 1.2.0
 
-* TODO: Describe initial release.
+* required init method to initialize Orange
+* remove async from set and get methods
