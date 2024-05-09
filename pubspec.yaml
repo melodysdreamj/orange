@@ -1,6 +1,6 @@
 name: orange
 description: "fast and esay modern key-value store"
-version: 1.0.0
+version: 1.0.1
 homepage:
 
 environment:
