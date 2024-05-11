@@ -71,7 +71,7 @@ class DeviceStorage {
   }
 
   _open() async {
-    String dbPath = 'orange.db';
+    String dbPath = 'orange_database_do_not_override_this_file.db';
     DatabaseFactory dbFactory = databaseFactoryIo;
 
     _store = StoreRef.main();

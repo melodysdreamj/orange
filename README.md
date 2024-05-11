@@ -45,8 +45,8 @@ shared_preferences read performance test time: 28 ms
 hive write performance test time: 1538 ms
 hive read performance test time: 4 ms
 
-sqflite write performance test time: 14884 ms
-sqflite read performance test time: 146 ms
+sembast write performance test time: 14884 ms
+sembast read performance test time: 146 ms
 
 ```
 you can re run the benchmark test this [repository](https://github.com/melodysdreamj/benchmark_for_orange_database)
@@ -57,6 +57,6 @@ you can re run the benchmark test this [repository](https://github.com/melodysdr
 ### Check Saved Disk Time
 if you want to check if the data is saved on disk, you can use `Orange.isSavedToDisk()` method.
 ```dart
-bool isSaved = await Orange.isSavedToDisk('orange');
+bool isSaved = await Orange.isSavedToDisk();
 print(isSaved); // true
 ```

@@ -73,7 +73,7 @@ class DeviceStorage {
 
   _open() async {
     String dbPath =
-        '${(await getApplicationDocumentsDirectory()).path}/orange.db';
+        '${(await getApplicationDocumentsDirectory()).path}/orange_database_do_not_override_this_file.db';
     DatabaseFactory dbFactory = databaseFactoryIo;
 
     _store = StoreRef.main();
