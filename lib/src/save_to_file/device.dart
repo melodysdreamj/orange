@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:easy_event_bus/easy_event_bus.dart';
-import 'package:sembast/sembast.dart';
-import 'package:sembast/sembast_io.dart';
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DeviceStorage {
@@ -19,7 +19,7 @@ class DeviceStorage {
 
   Future<dynamic> get(String key) async {
     await _ready();
-    return await _store.record(key).get(_db);
+    return box.get(key);
   }
 
   Future<void> remove(String key) async {
@@ -30,11 +30,14 @@ class DeviceStorage {
 
   Future<Map<String, dynamic>> getMap() async {
     await _ready();
-    final records = await _store.find(_db);
+    Map<String, dynamic> records = await box.getRealAll();
     Map<String, dynamic> map = {};
-    records.forEach((record) {
-      map[record.key.toString()] = (jsonDecode(record.value! as String)['v']);
+
+    records.forEach((key, value) {
+      map[key] = jsonDecode(value)['v'];
     });
+
+
     return map;
   }
 
@@ -51,11 +54,11 @@ class DeviceStorage {
 
   ////////////////////////
   static bool _isOpened = false;
-  static late StoreRef _store;
-  static late Database _db;
   static Timer? _actionTimer;
   static bool isRunning = false;
   static Completer<bool>? _diskSaveCompleter;
+  static late Box box;
+
 
   void _resetTimer() {
     _actionTimer?.cancel();
@@ -72,12 +75,10 @@ class DeviceStorage {
   }
 
   _open() async {
-    String dbPath =
-        '${(await getApplicationDocumentsDirectory()).path}/orange_database_do_not_override_this_file.db';
-    DatabaseFactory dbFactory = databaseFactoryIo;
-
-    _store = StoreRef.main();
-    _db = await dbFactory.openDatabase(dbPath);
+    WidgetsFlutterBinding.ensureInitialized();
+    final dir = await getApplicationDocumentsDirectory();
+    Hive.defaultDirectory = dir.path;
+    box = Hive.box();
 
     EasyEventBus.on('orange_device_storage_saved_to_disk', (event) {
       _diskSaveCompleter?.complete(true);
@@ -85,11 +86,12 @@ class DeviceStorage {
     });
 
     _setController.stream.listen((data) async {
-      await _store.record(data['k']).put(_db, jsonEncode({'v': data['v']}));
+      box.put(data['k'], jsonEncode({'v': data['v']}));
+      // await _store.record(data['k']).put(_db, jsonEncode({'v': data['v']}));
       _resetTimer();
     });
     _removeController.stream.listen((key) async {
-      await _store.record(key).delete(_db);
+      box.delete(key);
       _resetTimer();
     });
   }
