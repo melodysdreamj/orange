@@ -16,11 +16,6 @@ dependencies:
   sembast: ^3.7.1
   sembast_web: ^2.3.0
   sqflite: ^2.3.3+1
-  hive:
-    git:
-      url: https://github.com/melodysdreamj/hive
-      ref: main
-  isar_flutter_libs: ^4.0.0-dev.13
 
 dev_dependencies:
   flutter_test:
