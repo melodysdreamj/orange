@@ -20,6 +20,7 @@ dependencies:
     git:
       url: https://github.com/melodysdreamj/hive
       ref: main
+  isar_flutter_libs: ^4.0.0-dev.13
 
 dev_dependencies:
   flutter_test:
