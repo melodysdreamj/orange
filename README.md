@@ -60,3 +60,6 @@ if you want to check if the data is saved on disk, you can use `Orange.isSavedTo
 bool isSaved = await Orange.isSavedToDisk();
 print(isSaved); // true
 ```
+
+### Support List & Map
+note that only support `string` , `int` , `double` , `bool` type in List and Map.

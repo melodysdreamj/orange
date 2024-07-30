@@ -8,12 +8,17 @@ main() async {
   Orange.setBool('repeat', true);
   Orange.setDouble('decimal', 1.5);
   Orange.setString('action', 'Start');
+  Orange.setList('list', ['a', 'b', 2]);
+  Orange.setMap(
+      'map', {'string': 'value', 'int': 1, 'double': 1.5, 'bool': true});
 
   // read
   print(Orange.getInt('counter'));
   print(Orange.getBool('repeat'));
   print(Orange.getDouble('decimal'));
   print(Orange.getString('action'));
+  print(Orange.getList('list'));
+  print(Orange.getMap('map'));
 
   // remove
   Orange.remove('int');

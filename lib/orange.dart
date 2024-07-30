@@ -1,5 +1,7 @@
 library orange;
 
+import 'dart:convert';
+
 import 'package:orange/src/map.dart';
 
 class Orange {
@@ -19,6 +21,14 @@ class Orange {
     OrangeMap.set(key, value);
   }
 
+  static void setList(String key, List<dynamic> value) {
+    OrangeMap.set(key, json.encode(value));
+  }
+
+  static void setMap(String key, Map<String, dynamic> value) {
+    OrangeMap.set(key, json.encode(value));
+  }
+
   static int? getInt(String key) {
     return OrangeMap.get(key) as int?;
   }
@@ -33,6 +43,14 @@ class Orange {
 
   static bool? getBool(String key) {
     return OrangeMap.get(key) as bool?;
+  }
+
+  static List<dynamic>? getList(String key) {
+    return json.decode(OrangeMap.get(key) as String? ?? '[]');
+  }
+
+  static Map<String, dynamic>? getMap(String key) {
+    return json.decode(OrangeMap.get(key) as String? ?? '{}');
   }
 
   static void remove(String key) async {
