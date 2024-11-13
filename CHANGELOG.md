@@ -1,3 +1,6 @@
+## 1.2.9
+* support wasm
+
 ## 1.2.8
 
 * add list type support
